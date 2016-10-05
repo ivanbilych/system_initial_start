@@ -64,6 +64,7 @@ rar \
 remmina \
 sane-utils \
 sl \
+ssh \
 unity-tweak-tool \
 unrar \
 vim \
