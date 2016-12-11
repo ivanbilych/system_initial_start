@@ -12,7 +12,7 @@ sudo add-apt-repository ppa:openjdk-r/ppa -y
 # Update repositories
 sudo apt update
 
-# install software
+# Install software
 sudo apt install \
 android-tools-adb \
 apcupsd \
@@ -83,4 +83,5 @@ zip \
 zlib1g-dev \
 -y
 
+# Set correct timing zone
 timedatectl set-local-rtc 1 --adjust-system-clock
