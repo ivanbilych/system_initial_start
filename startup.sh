@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Remove guest session
+sudo mkdir -p /etc/lightdm/lightdm.conf.d
+sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\n" > /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
+
 # Add custom ppa
 sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y
 sudo add-apt-repository ppa:webupd8team/java -y
