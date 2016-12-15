@@ -4,6 +4,9 @@
 # System configuration #
 # -------------------- #
 
+# Install custom bash_rc file
+mv -f bashrc.txt ~/.bashrc
+
 # Remove guest session
 sudo mkdir -p /etc/lightdm/lightdm.conf.d
 sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\n" > /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
