@@ -117,9 +117,34 @@ zlib1g-dev \
 # Install glances
 wget -O- http://bit.ly/glances | /bin/bash
 
+# Packages to install by user
+packages=( \
+"skype" \
+"qt creator" \
+"android studio" \
+"truecrypt" \
+"virtual box" \
+"google chrome" \
+"sublimetext" \
+"cisco vpn" \
+"teamviewer" \
+"telegram" \
+"dropbox" \
+"google play music desktop player" \
+)
+
 # ---------------------- #
 # Packages configuration #
 # ---------------------- #
 
 git config --global user.email "ivanbilych@gmail.com"
 git config --global user.name "Ivan Bilych"
+
+# ------------- #
+# TODO manually #
+# ------------- #
+
+printf "\n\n"
+printf "Initial system installation is complete!"
+printf "Please install the next packages by yourself:"
+for i in ${packages[@]}; do printf "$i\n"; done
