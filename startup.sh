@@ -70,6 +70,8 @@ oracle-java7-installer \
 oracle-java8-installer \
 oracle-java9-installer \
 pcregrep \
+python-pip \
+python3-pip \
 qbittorrent \
 rar \
 remmina \
