@@ -88,6 +88,7 @@ python-pip \
 python3-pip \
 qbittorrent \
 rar \
+read-edid \
 remmina \
 repo \
 sane-utils \
