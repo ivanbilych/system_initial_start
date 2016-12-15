@@ -39,6 +39,8 @@ cowsay \
 cu \
 curl \
 debootstrap \
+exfat-fuse \
+exfat-utils \
 flex \
 fortune \
 funny-manpages \
