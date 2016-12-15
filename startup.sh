@@ -48,9 +48,14 @@ iptraf \
 keepass2 \
 lib32ncurses5-dev \
 lib32z-dev \
+lib32z1 \
+libbz2-1.0:i386 \
 libc6-dev-i386 \
+libc6:i386 \
 libgl1-mesa-dev \
+libncurses5:i386 \
 libreoffice \
+libstdc++6:i386 \
 libx11-dev \
 libxml2-utils \
 mc \
