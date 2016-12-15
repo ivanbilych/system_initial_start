@@ -1,8 +1,19 @@
 #!/bin/bash
 
+# -------------------- #
+# System configuration #
+# -------------------- #
+
 # Remove guest session
 sudo mkdir -p /etc/lightdm/lightdm.conf.d
 sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\n" > /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
+
+# Set correct timing zone
+timedatectl set-local-rtc 1 --adjust-system-clock
+
+# --------------------- #
+# Packages installation #
+# --------------------- #
 
 # Add custom ppa
 sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y
@@ -94,5 +105,3 @@ zip \
 zlib1g-dev \
 -y
 
-# Set correct timing zone
-timedatectl set-local-rtc 1 --adjust-system-clock
