@@ -86,6 +86,7 @@ oracle-java7-installer \
 oracle-java8-installer \
 oracle-java9-installer \
 pcregrep \
+pdfunite \
 python-pip \
 python3-pip \
 qbittorrent \
