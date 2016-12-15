@@ -31,6 +31,7 @@ sudo apt install \
 android-tools-adb \
 apcupsd \
 bison \
+blender \
 build-essential \
 ccache \
 clang \
