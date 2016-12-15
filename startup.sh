@@ -105,3 +105,5 @@ zip \
 zlib1g-dev \
 -y
 
+# Install glances
+wget -O- http://bit.ly/glances | /bin/bash
