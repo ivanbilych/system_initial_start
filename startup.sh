@@ -107,3 +107,10 @@ zlib1g-dev \
 
 # Install glances
 wget -O- http://bit.ly/glances | /bin/bash
+
+# ---------------------- #
+# Packages configuration #
+# ---------------------- #
+
+git config --global user.email "ivanbilych@gmail.com"
+git config --global user.name "Ivan Bilych"
