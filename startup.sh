@@ -39,6 +39,7 @@ cowsay \
 cu \
 curl \
 debootstrap \
+doxygen \
 exfat-fuse \
 exfat-utils \
 flex \
