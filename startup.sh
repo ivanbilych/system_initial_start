@@ -61,7 +61,6 @@ libxml2-utils \
 mc \
 memtest86+ \
 minicom \
-netmap \
 network-manager-openconnect \
 openconnect \
 oracle-java6-installer \
