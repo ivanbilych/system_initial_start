@@ -59,6 +59,7 @@ libstdc++6:i386 \
 libx11-dev \
 libxml2-utils \
 mc \
+meld \
 memtest86+ \
 minicom \
 network-manager-openconnect \
