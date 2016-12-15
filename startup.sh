@@ -82,6 +82,7 @@ vino \
 vlc \
 wine \
 x11proto-core-dev \
+xclip \
 xcowsay \
 xrdp \
 zip \
