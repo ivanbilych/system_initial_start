@@ -24,6 +24,7 @@ cmake \
 cowsay \
 cu \
 curl \
+debootstrap \
 flex \
 fortune \
 funny-manpages \
@@ -74,6 +75,7 @@ rar \
 remmina \
 repo \
 sane-utils \
+schroot \
 sl \
 ssh \
 unity-tweak-tool \
