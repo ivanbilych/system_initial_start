@@ -72,6 +72,7 @@ pcregrep \
 qbittorrent \
 rar \
 remmina \
+repo \
 sane-utils \
 sl \
 ssh \
