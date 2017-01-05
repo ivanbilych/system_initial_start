@@ -5,26 +5,26 @@
 # -------------------- #
 
 # Install custom bash_rc file
-cp -b bashrc.txt ~/.bashrc
+cp -b bashrc.txt ~/.bashrc > /dev/null 2>&1
 
 # Remove guest session
-sudo mkdir -p /etc/lightdm/lightdm.conf.d
-sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\n" > /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
+sudo mkdir -p /etc/lightdm/lightdm.conf.d > /dev/null 2>&1
+sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\n" > /etc/lightdm/lightdm.conf.d/50-no-guest.conf' > /dev/null 2>&1
 
 # Set correct timing zone
-timedatectl set-local-rtc 1 --adjust-system-clock
+timedatectl set-local-rtc 1 --adjust-system-clock > /dev/null 2>&1
 
 # --------------------- #
 # Packages installation #
 # --------------------- #
 
 # Add custom ppa
-sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y
-sudo add-apt-repository ppa:webupd8team/java -y
-sudo add-apt-repository ppa:openjdk-r/ppa -y
+sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y > /dev/null 2>&1
+sudo add-apt-repository ppa:webupd8team/java -y > /dev/null 2>&1
+sudo add-apt-repository ppa:openjdk-r/ppa -y > /dev/null 2>&1
 
 # Update repositories
-sudo apt update
+sudo apt update > /dev/null 2>&1
 
 # Install software
 sudo apt install \
@@ -112,10 +112,10 @@ xcowsay \
 xrdp \
 zip \
 zlib1g-dev \
--y
+-y > /dev/null 2>&1
 
 # Install glances
-wget -O- http://bit.ly/glances | /bin/bash
+wget -O- http://bit.ly/glances | /bin/bash > /dev/null 2>&1
 
 # Packages to install by user
 packages=( \
@@ -137,8 +137,8 @@ packages=( \
 # Packages configuration #
 # ---------------------- #
 
-git config --global user.email "ivanbilych@gmail.com"
-git config --global user.name "Ivan Bilych"
+git config --global user.email "ivanbilych@gmail.com" > /dev/null 2>&1
+git config --global user.name "Ivan Bilych" > /dev/null 2>&1
 
 # ------------- #
 # TODO manually #
