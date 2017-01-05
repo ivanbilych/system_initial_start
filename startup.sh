@@ -94,6 +94,7 @@ gitk \
 gnome-disk-utility \
 gnupg \
 google-chrome-stable \
+google-play-music-desktop-player \
 gparted \
 gperf \
 grub-customizer \
@@ -168,7 +169,6 @@ packages=( \
 "truecrypt" \
 "cisco vpn" \
 "telegram" \
-"google play music desktop player" \
 )
 
 printf "-> Packages installation DONE"
