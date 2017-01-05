@@ -27,6 +27,11 @@ gsettings set com.canonical.Unity.Launcher launcher-position Bottom \
 && printf "--> moving launcher OK" \
 || printf "--> moving launcher FAIL"
 
+# Enable minimize-on-click feature
+gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ launcher-minimize-window true \
+&& printf "--> minimize-on-click feature OK" \
+|| printf "--> minimize-on-click feature FAIL"
+
 printf "-> System configuration DONE"
 
 # --------------------- #
