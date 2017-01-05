@@ -4,27 +4,43 @@
 # System configuration #
 # -------------------- #
 
+printf "-> System configuration START"
+
 # Install custom bash_rc file
-cp -b bashrc.txt ~/.bashrc > /dev/null 2>&1
+cp -b bashrc.txt ~/.bashrc > /dev/null 2>&1 \
+&& printf "--> bashrc edit OK" \
+|| printf "--> bashrc edit FAIL"
 
 # Remove guest session
-sudo mkdir -p /etc/lightdm/lightdm.conf.d > /dev/null 2>&1
-sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\n" > /etc/lightdm/lightdm.conf.d/50-no-guest.conf' > /dev/null 2>&1
+sudo mkdir -p /etc/lightdm/lightdm.conf.d > /dev/null 2>&1 && \
+sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\n" > /etc/lightdm/lightdm.conf.d/50-no-guest.conf' > /dev/null 2>&1 \
+&& printf "--> guest session remove OK" \
+|| printf "--> guest session remove FAIL"
 
 # Set correct timing zone
-timedatectl set-local-rtc 1 --adjust-system-clock > /dev/null 2>&1
+timedatectl set-local-rtc 1 --adjust-system-clock > /dev/null 2>&1 \
+&& printf "--> setting correct timing zone OK" \
+|| printf "--> setting correct timing zone FAIL"
+
+printf "-> System configuration DONE"
 
 # --------------------- #
 # Packages installation #
 # --------------------- #
 
+printf "-> Packages installation START"
+
 # Add custom ppa
-sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y > /dev/null 2>&1
-sudo add-apt-repository ppa:webupd8team/java -y > /dev/null 2>&1
-sudo add-apt-repository ppa:openjdk-r/ppa -y > /dev/null 2>&1
+sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y > /dev/null 2>&1 && \
+sudo add-apt-repository ppa:webupd8team/java -y > /dev/null 2>&1 && \
+sudo add-apt-repository ppa:openjdk-r/ppa -y > /dev/null 2>&1 \
+&& printf "--> add custom ppa OK" \
+|| printf "--> add custom ppa FAIL"
 
 # Update repositories
-sudo apt update > /dev/null 2>&1
+sudo apt update > /dev/null 2>&1 \
+&& printf "--> packages update OK" \
+|| printf "--> packages update FAIL"
 
 # Install software
 sudo apt install \
@@ -112,10 +128,14 @@ xcowsay \
 xrdp \
 zip \
 zlib1g-dev \
--y > /dev/null 2>&1
+-y > /dev/null 2>&1 \
+&& printf "--> packages installation OK" \
+|| printf "--> packages installation FAIL"
 
 # Install glances
-wget -O- http://bit.ly/glances | /bin/bash > /dev/null 2>&1
+wget -O- http://bit.ly/glances | /bin/bash > /dev/null 2>&1 \
+&& printf "--> glances installation OK" \
+|| printf "--> glances installation FAIL"
 
 # Packages to install by user
 packages=( \
@@ -133,18 +153,27 @@ packages=( \
 "google play music desktop player" \
 )
 
+printf "-> Packages installation DONE"
+
 # ---------------------- #
 # Packages configuration #
 # ---------------------- #
 
-git config --global user.email "ivanbilych@gmail.com" > /dev/null 2>&1
-git config --global user.name "Ivan Bilych" > /dev/null 2>&1
+printf "-> Packages configuration START"
+
+# git configuration
+git config --global user.email "ivanbilych@gmail.com" > /dev/null 2>&1 && \
+git config --global user.name "Ivan Bilych" > /dev/null 2>&1 \
+&& printf "--> git configuration OK" \
+|| printf "--> git configuration FAIL"
+
+printf "-> Packages configuration DONE"
 
 # ------------- #
 # TODO manually #
 # ------------- #
 
 printf "\n\n"
-printf "Initial system installation is complete!"
-printf "Please install the next packages by yourself:"
-for i in ${packages[@]}; do printf "$i\n"; done
+printf "-> Initial system installation is complete!"
+printf "-> Please install the next packages by yourself:"
+for i in ${packages[@]}; do printf "-> $i\n"; done
