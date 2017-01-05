@@ -134,6 +134,7 @@ repo \
 sane-utils \
 schroot \
 skype \
+sublime-text \
 sl \
 ssh \
 unity-tweak-tool \
@@ -163,7 +164,6 @@ packages=( \
 "qt creator" \
 "android studio" \
 "truecrypt" \
-"sublimetext" \
 "cisco vpn" \
 "teamviewer" \
 "telegram" \
