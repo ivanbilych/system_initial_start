@@ -132,6 +132,7 @@ remmina \
 repo \
 sane-utils \
 schroot \
+skype \
 sl \
 ssh \
 unity-tweak-tool \
@@ -157,7 +158,6 @@ wget -O- http://bit.ly/glances | /bin/bash > /dev/null 2>&1 \
 
 # Packages to install by user
 packages=( \
-"skype" \
 "qt creator" \
 "android studio" \
 "truecrypt" \
