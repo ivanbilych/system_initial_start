@@ -32,6 +32,13 @@ gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshel
 && printf "--> minimize-on-click feature OK" \
 || printf "--> minimize-on-click feature FAIL"
 
+# Set desktop wallpaper
+sudo mkdir -p ~/Pictures/wallpaper > /dev/null 2>&1 && \
+cp wallpaper.jpg ~/Pictures/wallpaper > /dev/null 2>&1 && \
+gsettings set org.gnome.desktop.background picture-uri file://~/Pictures/wallpaper/wallpaper.jpg \
+&& printf "--> wallpaper set OK" \
+|| printf "--> wallpaper set FAIL"
+
 printf "-> System configuration DONE"
 
 # --------------------- #
