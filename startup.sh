@@ -51,6 +51,7 @@ printf "-> Packages installation START"
 sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y > /dev/null 2>&1 && \
 sudo add-apt-repository ppa:webupd8team/java -y > /dev/null 2>&1 && \
 sudo add-apt-repository ppa:openjdk-r/ppa -y > /dev/null 2>&1 \
+sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner" > /dev/null 2>&1 \
 && printf "--> add custom ppa OK" \
 || printf "--> add custom ppa FAIL"
 
