@@ -5,7 +5,7 @@
 # -------------------- #
 
 # Install custom bash_rc file
-mv -f bashrc.txt ~/.bashrc
+cp -b bashrc.txt ~/.bashrc
 
 # Remove guest session
 sudo mkdir -p /etc/lightdm/lightdm.conf.d
