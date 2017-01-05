@@ -75,6 +75,7 @@ cu \
 curl \
 debootstrap \
 doxygen \
+dropbox \
 exfat-fuse \
 exfat-utils \
 flex \
@@ -167,7 +168,6 @@ packages=( \
 "truecrypt" \
 "cisco vpn" \
 "telegram" \
-"dropbox" \
 "google play music desktop player" \
 )
 
