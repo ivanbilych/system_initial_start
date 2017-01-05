@@ -139,6 +139,7 @@ unity-tweak-tool \
 unrar \
 vim \
 vino \
+virtualbox \
 vlc \
 wine \
 x11proto-core-dev \
@@ -161,7 +162,6 @@ packages=( \
 "qt creator" \
 "android studio" \
 "truecrypt" \
-"virtual box" \
 "google chrome" \
 "sublimetext" \
 "cisco vpn" \
