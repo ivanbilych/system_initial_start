@@ -22,6 +22,11 @@ timedatectl set-local-rtc 1 --adjust-system-clock > /dev/null 2>&1 \
 && printf "--> setting correct timing zone OK" \
 || printf "--> setting correct timing zone FAIL"
 
+# Move Unity launcher to the bottom
+gsettings set com.canonical.Unity.Launcher launcher-position Bottom \
+&& printf "--> moving launcher OK" \
+|| printf "--> moving launcher FAIL"
+
 printf "-> System configuration DONE"
 
 # --------------------- #
