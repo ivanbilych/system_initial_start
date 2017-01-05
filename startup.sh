@@ -137,6 +137,7 @@ skype \
 sublime-text \
 sl \
 ssh \
+teamviewer \
 unity-tweak-tool \
 unrar \
 vim \
@@ -165,7 +166,6 @@ packages=( \
 "android studio" \
 "truecrypt" \
 "cisco vpn" \
-"teamviewer" \
 "telegram" \
 "dropbox" \
 "google play music desktop player" \
