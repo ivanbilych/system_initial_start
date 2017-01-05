@@ -92,6 +92,7 @@ git-core \
 gitk \
 gnome-disk-utility \
 gnupg \
+google-chrome-stable \
 gparted \
 gperf \
 grub-customizer \
@@ -162,7 +163,6 @@ packages=( \
 "qt creator" \
 "android studio" \
 "truecrypt" \
-"google chrome" \
 "sublimetext" \
 "cisco vpn" \
 "teamviewer" \
