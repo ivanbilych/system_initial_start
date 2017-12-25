@@ -4,97 +4,58 @@
 # System configuration #
 # -------------------- #
 
-printf "-> System configuration START"
+echo -e "> System configuration START"
 
 # Install custom bash_rc file
-cp -b bashrc.txt ~/.bashrc > /dev/null 2>&1 \
-&& printf "--> bashrc edit OK" \
-|| printf "--> bashrc edit FAIL"
-
-# Remove guest session
-sudo mkdir -p /etc/lightdm/lightdm.conf.d > /dev/null 2>&1 && \
-sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\n" > /etc/lightdm/lightdm.conf.d/50-no-guest.conf' > /dev/null 2>&1 \
-&& printf "--> guest session remove OK" \
-|| printf "--> guest session remove FAIL"
+cp -b bashrc.txt ~/.bashrc \
+&& echo -e ">> bashrc edit OK" \
+|| echo -e ">> bashrc edit FAIL"
 
 # Set correct timing zone
-timedatectl set-local-rtc 1 --adjust-system-clock > /dev/null 2>&1 \
-&& printf "--> setting correct timing zone OK" \
-|| printf "--> setting correct timing zone FAIL"
+timedatectl set-local-rtc 1 --adjust-system-clock \
+&& echo -e ">> setting correct timing zone OK" \
+|| echo -e ">> setting correct timing zone FAIL"
 
-# Move Unity launcher to the bottom
-gsettings set com.canonical.Unity.Launcher launcher-position Bottom \
-&& printf "--> moving launcher OK" \
-|| printf "--> moving launcher FAIL"
-
-# Enable minimize-on-click feature
-gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ launcher-minimize-window true \
-&& printf "--> minimize-on-click feature OK" \
-|| printf "--> minimize-on-click feature FAIL"
-
-# Set desktop wallpaper
-sudo mkdir -p ~/Pictures/wallpaper > /dev/null 2>&1 && \
-cp wallpaper.jpg ~/Pictures/wallpaper > /dev/null 2>&1 && \
-gsettings set org.gnome.desktop.background picture-uri file://~/Pictures/wallpaper/wallpaper.jpg \
-&& printf "--> wallpaper set OK" \
-|| printf "--> wallpaper set FAIL"
-
-printf "-> System configuration DONE"
+echo -e "> System configuration DONE"
 
 # --------------------- #
 # Packages installation #
 # --------------------- #
 
-printf "-> Packages installation START"
+echo -e "> Packages installation START"
 
 # Add custom ppa
-sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y > /dev/null 2>&1 && \
-sudo add-apt-repository ppa:webupd8team/java -y > /dev/null 2>&1 && \
-sudo add-apt-repository ppa:openjdk-r/ppa -y > /dev/null 2>&1 \
-sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner" > /dev/null 2>&1 \
-&& printf "--> add custom ppa OK" \
-|| printf "--> add custom ppa FAIL"
+sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y \
+&& echo -e ">> add custom ppa OK" \
+|| echo -e ">> add custom ppa FAIL"
 
 # Update repositories
-sudo apt update > /dev/null 2>&1 \
-&& printf "--> packages update OK" \
-|| printf "--> packages update FAIL"
+sudo apt update \
+&& echo -e ">> packages update OK" \
+|| echo -e ">> packages update FAIL"
 
 # Install software
 sudo apt install \
 android-tools-adb \
-apcupsd \
-bison \
-blender \
+android-tools-fastboot \
 build-essential \
 ccache \
 clang \
 cmake \
-cowsay \
 cu \
 curl \
 debootstrap \
 doxygen \
-dropbox \
 exfat-fuse \
 exfat-utils \
 flex \
-fortune \
-funny-manpages \
 g++-multilib \
-gcc-4.8 \
-gcc-4.8-multilib \
-gcc-4.9 \
-gcc-4.9-multilib \
 gcc-multilib \
 gimp \
 git \
-git-core \
 gitk \
 gnome-disk-utility \
 gnupg \
-google-chrome-stable \
-google-play-music-desktop-player \
 gparted \
 gperf \
 grub-customizer \
@@ -102,96 +63,59 @@ gthumb \
 htop \
 iptraf \
 keepass2 \
-lib32ncurses5-dev \
-lib32z-dev \
-lib32z1 \
-libbz2-1.0:i386 \
-libc6-dev-i386 \
-libc6:i386 \
-libgl1-mesa-dev \
-libncurses5:i386 \
-libreoffice \
-libstdc++6:i386 \
-libx11-dev \
-libxml2-utils \
 mc \
 meld \
 memtest86+ \
 minicom \
 network-manager-openconnect \
+network-manager-openconnect-gnome \
+network-manager-openvpn \
+network-manager-openvpn-gnome \
 openconnect \
-oracle-java6-installer \
-oracle-java7-installer \
-oracle-java8-installer \
-oracle-java9-installer \
 pcregrep \
-pdfunite \
+poppler-utils \
 python-pip \
 python3-pip \
 qbittorrent \
 rar \
-read-edid \
 remmina \
 repo \
 sane-utils \
 schroot \
-skype \
-sublime-text \
 sl \
 ssh \
-teamviewer \
-unity-tweak-tool \
 unrar \
 vim \
 vino \
-virtualbox \
 vlc \
-wine \
+wine-stable \
 x11proto-core-dev \
 xclip \
-xcowsay \
 xrdp \
 zip \
 zlib1g-dev \
--y > /dev/null 2>&1 \
-&& printf "--> packages installation OK" \
-|| printf "--> packages installation FAIL"
+-y \
+&& echo -e ">> packages installation OK" \
+|| echo -e ">> packages installation FAIL"
 
 # Install glances
-wget -O- http://bit.ly/glances | /bin/bash > /dev/null 2>&1 \
-&& printf "--> glances installation OK" \
-|| printf "--> glances installation FAIL"
+wget -O- http://bit.ly/glances | /bin/bash \
+&& echo -e ">> glances installation OK" \
+|| echo -e ">> glances installation FAIL"
 
-# Packages to install by user
-packages=( \
-"qt creator" \
-"android studio" \
-"truecrypt" \
-"cisco vpn" \
-"telegram" \
-)
-
-printf "-> Packages installation DONE"
+echo -e "> Packages installation DONE"
 
 # ---------------------- #
 # Packages configuration #
 # ---------------------- #
 
-printf "-> Packages configuration START"
+echo -e "> Packages configuration START"
 
 # git configuration
-git config --global user.email "ivanbilych@gmail.com" > /dev/null 2>&1 && \
-git config --global user.name "Ivan Bilych" > /dev/null 2>&1 \
-&& printf "--> git configuration OK" \
-|| printf "--> git configuration FAIL"
+git config --global user.email "ivanbilych@gmail.com" && \
+git config --global user.name "Ivan Bilych" \
+&& echo -e ">> git configuration OK" \
+|| echo -e ">> git configuration FAIL"
 
-printf "-> Packages configuration DONE"
+echo -e "> Packages configuration DONE"
 
-# ------------- #
-# TODO manually #
-# ------------- #
-
-printf "\n\n"
-printf "-> Initial system installation is complete!"
-printf "-> Please install the next packages by yourself:"
-for i in ${packages[@]}; do printf "-> $i\n"; done

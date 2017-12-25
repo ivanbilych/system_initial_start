@@ -139,20 +139,12 @@ alias m4="make -j4"
 alias m8="make -j8"
 alias m16="make -j16"
 
-# Chroot alias
-alias chroot-ubuntu_14.04="schroot -c ubuntu_14.04_x64 -u ivan"
-
+# Other alias
 alias ..='cd ..'
 
-# Mc preferences
-export EDITOR="vim"
+# MC preferences
+export EDITOR="subl -w"
 
 # PATH modifications
 export PATH="${PATH}:/home/ivan/.bin"
-export PATH="${PATH}:/opt/android-studio/bin"
-export PATH="${PATH}:/opt/cisco/anyconnect/bin/"
-export PATH="${PATH}:/opt/pycharm/bin/"
 
-export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
-export DRI_PRIME=1
-export WWW_HOME='http://www.google.com.ua'
