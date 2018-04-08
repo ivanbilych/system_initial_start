@@ -1,3 +1,24 @@
-# system_initial_start
+# Info
+System setup routine after clean system install. Was tested on **Ubuntu 17.10**
 
-Some system routine after install. Works for Ubuntu 16.04
+# Instructions
+Just run the script:
+```
+./configure.sh
+```
+
+# Script actions
+* System configuration
+    * set HISTSIZE=100000 in /home/ivan/.bashrc
+    * set HISTFILESIZE=200000 in /home/ivan/.bashrc
+    * set force_color_prompt=yes in /home/ivan/.bashrc
+    * append bashrc file with custom parameters in /home/ivan/.bashrc
+    * setup currect time locale
+* Packages installation
+    * add custom repository: ppa:danielrichter2007/grub-customizer
+    * update list of available packages
+    * ubuntu deb packages installation
+    * install glances tool
+* Packages configuration
+    * git configuration
+
