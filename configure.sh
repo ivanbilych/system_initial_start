@@ -243,6 +243,14 @@ wget -q -O- http://bit.ly/glances | redirect /bin/bash \
 && task_ok "${message}" \
 || task_fail "${message}"
 
+# Install repo tool
+message="install repo tool"
+redirect mkdir -p ~/.bin \
+&& curl -s https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo \
+&& redirect chmod a+x ~/.bin/repo \
+&& task_ok "${message}" \
+|| task_fail "${message}"
+
 print_done "Packages installation"
 
 #-- Packages configuration --#
