@@ -36,7 +36,7 @@ back_yellow="43"
 clear_color="00"
 
 style() { if [ -z ${2} ]; then echo "\e[${1}m"; else echo "\e[${2};${1}m"; fi; }
-parse_git_diff() { if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" == "true" ]; then if [ ! "$(git status 2> /dev/null | grep "nothing to commit" )" ]; then echo -en "$(style ${clear_color})$(style ${back_yellow})$(style ${text_red})*$(style ${clear_color})"; fi; fi; }
+parse_git_diff() { if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" == "true" ]; then if [ ! "$(git status 2> /dev/null | grep "nothing to commit" )" ]; then echo -en "$(style ${clear_color})$(style ${back_yellow})$(style ${text_red})✺$(style ${clear_color})"; fi; fi; }
 parse_git_branch() { if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" == "true" ]; then echo -en "$(style ${clear_color}) $(style ${text_black})$(style ${back_yellow})▶$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')$(parse_git_diff)$(style ${text_black})$(style ${back_yellow})◀$(style ${clear_color})"; fi; }
 
 # Bash command prompt configuration
