@@ -16,6 +16,7 @@ Just run the script:
     * setup currect time locale
 * Packages installation
     * add custom repository: ppa:danielrichter2007/grub-customizer
+    * add custom repository: ppa:webupd8team/sublime-text-3
     * update list of available packages
     * ubuntu deb packages installation
     * install glances tool
