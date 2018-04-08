@@ -207,6 +207,7 @@ network-manager-openvpn \
 network-manager-openvpn-gnome \
 openconnect \
 pcregrep \
+pdftk \
 poppler-utils \
 python-pip \
 python3-pip \
@@ -219,6 +220,7 @@ schroot \
 sl \
 ssh \
 sublime-text \
+texlive-extra-utils \
 unrar \
 vim \
 vino \
