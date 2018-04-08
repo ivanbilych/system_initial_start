@@ -265,6 +265,17 @@ redirect mkdir -p ~/.bin \
 && task_ok "${message}" \
 || task_fail "${message}"
 
+# Install skype
+tmp_dir="$(mktemp -d)"
+app="skypeforlinux-64.deb"
+message="install skype app"
+redirect mkdir -p ~/.bin \
+&& wget -q -O ${tmp_dir}/${app} https://go.skype.com/skypeforlinux-64.deb \
+&& redirect sudo dpkg -i ${tmp_dir}/${app} \
+&& redirect sudo apt install -f \
+&& task_ok "${message}" \
+|| task_fail "${message}"
+
 print_done "Packages installation"
 
 #-- Packages configuration --#
