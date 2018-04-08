@@ -155,6 +155,12 @@ redirect sudo add-apt-repository ${ppa_01} -y \
 && task_ok "${message}" \
 || task_fail "${message}"
 
+ppa_02="ppa:webupd8team/sublime-text-3"
+message="add custom repository: ${ppa_02}"
+redirect sudo add-apt-repository ${ppa_02} -y \
+&& task_ok "${message}" \
+|| task_fail "${message}"
+
 # Update repositories
 message="update list of available packages"
 redirect sudo apt update \
@@ -211,6 +217,7 @@ sane-utils \
 schroot \
 sl \
 ssh \
+sublime-text \
 unrar \
 vim \
 vino \
