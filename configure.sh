@@ -195,6 +195,7 @@ grub-customizer \
 gthumb \
 htop \
 iptraf \
+kazam \
 keepass2 \
 mc \
 meld \
