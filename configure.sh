@@ -251,6 +251,17 @@ redirect mkdir -p ~/.bin \
 && task_ok "${message}" \
 || task_fail "${message}"
 
+# Install telegram
+tmp_dir="$(mktemp -d)"
+app="telegram.tar.xz"
+message="install telegram app"
+redirect mkdir -p ~/.bin \
+&& wget -q -O ${tmp_dir}/${app} https://telegram.org/dl/desktop/linux \
+&& redirect tar xf ${tmp_dir}/${app} -C ${tmp_dir} \
+&& redirect mv ${tmp_dir}/Telegram/* ~/.bin \
+&& task_ok "${message}" \
+|| task_fail "${message}"
+
 print_done "Packages installation"
 
 #-- Packages configuration --#
