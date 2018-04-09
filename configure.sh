@@ -136,6 +136,12 @@ else
     print_warn "bashrc file was already appended"
 fi
 
+# Setup bashrc for root user
+message="setup .bashrc for root user"
+redirect sudo cp ${target_file} /root \
+&& task_ok "${message}" \
+|| task_fail "${message}"
+
 # Setup correct time locale
 
 message="setup currect time locale"

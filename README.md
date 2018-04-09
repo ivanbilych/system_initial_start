@@ -14,6 +14,7 @@ Just run the script:
     * set force_color_prompt=yes in /home/ivan/.bashrc
     * append bashrc file with custom parameters in /home/ivan/.bashrc
     * setup currect time locale
+    * setup bashrc for root user
 * Packages installation
     * add custom repository: ppa:danielrichter2007/grub-customizer
     * add custom repository: ppa:webupd8team/sublime-text-3
