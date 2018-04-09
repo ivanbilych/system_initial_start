@@ -350,4 +350,12 @@ git config --global user.name ${name} \
 && task_ok "${message}" \
 || task_fail "${message}"
 
+# sublime-text-3 configuration
+message="sublime-text-3 configuration"
+rm -rf /home/${USER}/.config/sublime-text-3/Packages/User && \
+mkdir -p /home/${USER}/Dropbox/Backup/sublime-text-3/User && \
+ln -s /home/${USER}/Dropbox/Backup/sublime-text-3/User /home/${USER}/.config/sublime-text-3/Packages/User \
+&& task_ok "${message}" \
+|| task_fail "${message}"
+
 print_done "Packages configuration"
