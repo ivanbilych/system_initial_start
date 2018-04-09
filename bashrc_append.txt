@@ -67,4 +67,4 @@ alias ..='cd ..'
 export EDITOR="subl -w"
 
 # PATH modifications
-export PATH="${PATH}:/home/ivan/.bin"
+export PATH="${PATH}:/home/${USER}/.bin"
