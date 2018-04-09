@@ -276,6 +276,40 @@ redirect mkdir -p ~/.bin \
 && task_ok "${message}" \
 || task_fail "${message}"
 
+# Install QT Creator
+tmp_dir="$(mktemp -d)"
+app="qt-opensource-linux-x64.run"
+message="install QT Creator"
+print_warn "Installing QT Creator. This can take some time. User input actions required"
+{
+    is_done="false"
+
+    for major in {6..0}; do
+        for minor in {12..0}; do
+            for release in {5..0}; do
+                wget -q -O ${tmp_dir}/${app} http://download.qt.io/official_releases/qt/${major}.${minor}/${major}.${minor}.${release}/qt-opensource-linux-x64-${major}.${minor}.${release}.run
+
+                if [ "$?" == "0" ]; then
+                    is_done="true"
+                    break
+                fi
+            done
+
+            if [ ${is_done} == "true" ]; then
+                break
+            fi
+        done
+
+        if [ ${is_done} == "true" ]; then
+            break
+        fi
+    done
+} \
+&& redirect chmod +x ${tmp_dir}/${app} \
+&& redirect ${tmp_dir}/${app} \
+&& task_ok "${message} version ${major}.${minor}.${release}" \
+|| task_fail "${message} version ${major}.${minor}.${release}"
+
 print_done "Packages installation"
 
 #-- Packages configuration --#
