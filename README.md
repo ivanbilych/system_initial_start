@@ -10,10 +10,10 @@ use `debug=true` prefix in case debug output required
 
 # Script actions
 * System configuration
-    * set HISTSIZE=100000 in /home/ivan/.bashrc
-    * set HISTFILESIZE=200000 in /home/ivan/.bashrc
-    * set force_color_prompt=yes in /home/ivan/.bashrc
-    * append bashrc file with custom parameters in /home/ivan/.bashrc
+    * set HISTSIZE=100000 in /home/${USER}/.bashrc
+    * set HISTFILESIZE=200000 in /home/${USER}/.bashrc
+    * set force_color_prompt=yes in /home/${USER}/.bashrc
+    * append bashrc file with custom parameters in /home/${USER}/.bashrc
     * setup currect time locale
     * setup bashrc for root user
 * Packages installation
@@ -22,10 +22,10 @@ use `debug=true` prefix in case debug output required
     * update list of available packages
     * ubuntu deb packages installation
     * install glances tool
-    * Install repo tool
-    * Install telegram
-    * Install skype
-    * Install QT Creator
+    * install repo tool
+    * install telegram
+    * install skype
+    * install QT Creator
 * Packages configuration
     * git configuration
 
