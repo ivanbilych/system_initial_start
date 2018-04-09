@@ -6,6 +6,7 @@ Just run the script:
 ```
 ./configure.sh
 ```
+use `debug=true` prefix in case debug output required
 
 # Script actions
 * System configuration
