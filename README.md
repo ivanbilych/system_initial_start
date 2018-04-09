@@ -20,6 +20,10 @@ Just run the script:
     * update list of available packages
     * ubuntu deb packages installation
     * install glances tool
+    * Install repo tool
+    * Install telegram
+    * Install skype
+    * Install QT Creator
 * Packages configuration
     * git configuration
 
