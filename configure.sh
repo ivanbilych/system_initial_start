@@ -167,6 +167,13 @@ redirect sudo add-apt-repository ${ppa_02} -y \
 && task_ok "${message}" \
 || task_fail "${message}"
 
+ppa_03="deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+message="add custom repository: ${ppa_03}"
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | redirect sudo apt-key add - \
+&& echo "${ppa_03}" | redirect sudo  tee /etc/apt/sources.list.d/google-chrome.list \
+&& task_ok "${message}" \
+|| task_fail "${message}"
+
 # Update repositories
 message="update list of available packages"
 redirect sudo apt update \
@@ -195,6 +202,7 @@ git \
 gitk \
 gnome-disk-utility \
 gnupg \
+google-chrome-stable \
 gparted \
 gperf \
 grub-customizer \
