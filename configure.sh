@@ -324,6 +324,17 @@ print_warn "Installing QT Creator. This can take some time. User input actions r
 && task_ok "${message} version ${major}.${minor}.${release}" \
 || task_fail "${message} version ${major}.${minor}.${release}"
 
+# Install dropbox
+tmp_dir="$(mktemp -d)"
+app="dropbox.tar.gz"
+message="install dropbox app"
+redirect mkdir -p ~/.bin \
+&& wget -q -O ${tmp_dir}/${app} https://www.dropbox.com/download?plat=lnx.x86_64 \
+&& redirect tar xzf ${tmp_dir}/${app} -C ${tmp_dir} \
+&& redirect cp -rf ${tmp_dir}/.dropbox-dist/* ~/.bin \
+&& task_ok "${message}" \
+|| task_fail "${message}"
+
 print_done "Packages installation"
 
 #-- Packages configuration --#
