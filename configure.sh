@@ -206,11 +206,16 @@ google-chrome-stable \
 gparted \
 gperf \
 grub-customizer \
+gstreamer1.0-plugins-bad \
+gstreamer1.0-plugins-ugly \
 gthumb \
 htop \
 iptraf \
 kazam \
 keepass2 \
+libdvd-pkg \
+libdvdnav4 \
+libdvdread4 \
 mc \
 meld \
 memtest86+ \
@@ -235,6 +240,7 @@ sl \
 ssh \
 sublime-text \
 texlive-extra-utils \
+ubuntu-restricted-extras \
 unrar \
 vim \
 vino \
