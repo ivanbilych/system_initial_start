@@ -231,6 +231,7 @@ poppler-utils \
 python-pip \
 python3-pip \
 qbittorrent \
+qt5-qmake \
 rar \
 remmina \
 repo \
