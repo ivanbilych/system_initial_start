@@ -52,6 +52,7 @@ color_red="$(style ${text_red})"
 color_red_b="$(style ${text_red} ${attr_bold})"
 color_yellow="$(style ${text_yellow})"
 color_purple="$(style ${text_purple})"
+color_blue="$(style ${text_blue})"
 
 print_title() {
     echo -e "\n${color_purple}### ${1} ###${color_normal}\n"
@@ -415,8 +416,10 @@ print_done "Packages installation"
 print_title "Packages configuration"
 
 # git configuration
-email="ivanbilych@gmail.com"
-name="Ivan Bilych"
+echo -n "${color_blue}please enter user name:${color_normal} "
+read name
+echo -n "${color_blue}please enter user email:${color_normal} "
+read email
 message="git configuration"
 git config --global user.email ${email} && \
 git config --global user.name ${name} \
