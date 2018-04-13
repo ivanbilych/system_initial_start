@@ -296,6 +296,72 @@ redirect mkdir -p ~/.bin \
 && task_ok "${message}" \
 || task_fail "${message}"
 
+# Install QT5 packages
+
+software_list="
+libqt5bluetooth5 \
+libqt5concurrent5 \
+libqt5contacts5 \
+libqt5core5a \
+libqt5dbus5 \
+libqt5designer5 \
+libqt5designercomponents5 \
+libqt5feedback5 \
+libqt5gui5 \
+libqt5help5 \
+libqt5location5 \
+libqt5multimedia5 \
+libqt5network5 \
+libqt5nfc5 \
+libqt5opengl5 \
+libqt5opengl5-dev \
+libqt5organizer5 \
+libqt5positioning5 \
+libqt5printsupport5 \
+libqt5publishsubscribe5 \
+libqt5qml5 \
+libqt5quick5 \
+libqt5quickparticles5 \
+libqt5quicktest5 \
+libqt5quickwidgets5 \
+libqt5script5 \
+libqt5scripttools5 \
+libqt5sensors5 \
+libqt5sensors5-dev \
+libqt5serialport5 \
+libqt5serialport5-dev \
+libqt5serviceframework5 \
+libqt5sql5 \
+libqt5svg5 \
+libqt5svg5-dev \
+libqt5systeminfo5 \
+libqt5test5 \
+libqt5webkit5 \
+libqt5webkit5-dev \
+libqt5websockets5 \
+libqt5websockets5-dev \
+libqt5widgets5 \
+libqt5x11extras5 \
+libqt5x11extras5-dev \
+libqt5xml5 \
+libqt5xmlpatterns5 \
+libqt5xmlpatterns5-dev \
+qtbase5-dev \
+qtconnectivity5-dev \
+qtdeclarative5-dev \
+qtmultimedia5-dev \
+qtpositioning5-dev \
+qtscript5-dev \
+qttools5-dev \
+"
+
+print_warn "Installing software. This can take some time"
+
+message="QT5 deb packages installation"
+redirect sudo apt install ${software_list} -y \
+&& task_ok "${message}" \
+|| { task_fail "${message}"; print_fail "Packages install error"; }
+
 # Install QT Creator
 tmp_dir="$(mktemp -d)"
 app="qt-opensource-linux-x64.run"
