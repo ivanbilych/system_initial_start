@@ -158,20 +158,21 @@ print_title "Packages installation"
 
 ppa_01="ppa:danielrichter2007/grub-customizer"
 message="add custom repository: ${ppa_01}"
-redirect sudo add-apt-repository ${ppa_01} -y \
+redirect sudo add-apt-repository "${ppa_01}" -y \
 && task_ok "${message}" \
 || task_fail "${message}"
 
-ppa_02="ppa:webupd8team/sublime-text-3"
+ppa_02="deb https://download.sublimetext.com/ apt/stable/"
 message="add custom repository: ${ppa_02}"
-redirect sudo add-apt-repository ${ppa_02} -y \
+wget -q -O - https://download.sublimetext.com/sublimehq-pub.gpg | redirect sudo apt-key add - \
+&& redirect sudo add-apt-repository "${ppa_02}" --yes \
 && task_ok "${message}" \
 || task_fail "${message}"
 
 ppa_03="deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
 message="add custom repository: ${ppa_03}"
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | redirect sudo apt-key add - \
-&& echo "${ppa_03}" | redirect sudo  tee /etc/apt/sources.list.d/google-chrome.list \
+&& echo "${ppa_03}" | redirect sudo tee /etc/apt/sources.list.d/google-chrome.list \
 && task_ok "${message}" \
 || task_fail "${message}"
 
@@ -187,6 +188,7 @@ android-tools-adb \
 android-tools-fastboot \
 build-essential \
 ccache \
+chrome-gnome-shell \
 clang \
 cmake \
 conky-all \
@@ -199,10 +201,15 @@ exfat-utils \
 flex \
 g++-multilib \
 gcc-multilib \
+gconf-service \
+gconf-service-backend \
+gconf2-common \
 gimp \
 git \
 gitk \
 gnome-disk-utility \
+gnome-shell-extensions \
+gnome-tweak-tool \
 gnupg \
 google-chrome-stable \
 gparted \
@@ -215,9 +222,11 @@ htop \
 iptraf \
 kazam \
 keepass2 \
+libcanberra-gtk-module:i386 \
 libdvd-pkg \
 libdvdnav4 \
 libdvdread4 \
+libgconf-2-4 \
 mc \
 meld \
 memtest86+ \
@@ -228,7 +237,6 @@ network-manager-openvpn \
 network-manager-openvpn-gnome \
 openconnect \
 pcregrep \
-pdftk \
 poppler-utils \
 python-pip \
 python3-pip \
@@ -280,7 +288,7 @@ redirect mkdir -p ~/.bin \
 # Install telegram
 message="install telegram app"
 redirect sudo snap install telegram-desktop \
-redirect sudo snap install telegram-cli \
+&& redirect sudo snap install telegram-cli \
 && task_ok "${message}" \
 || task_fail "${message}"
 
@@ -305,7 +313,6 @@ libqt5core5a \
 libqt5dbus5 \
 libqt5designer5 \
 libqt5designercomponents5 \
-libqt5feedback5 \
 libqt5gui5 \
 libqt5help5 \
 libqt5location5 \
@@ -317,7 +324,6 @@ libqt5opengl5-dev \
 libqt5organizer5 \
 libqt5positioning5 \
 libqt5printsupport5 \
-libqt5publishsubscribe5 \
 libqt5qml5 \
 libqt5quick5 \
 libqt5quickparticles5 \
@@ -329,11 +335,9 @@ libqt5sensors5 \
 libqt5sensors5-dev \
 libqt5serialport5 \
 libqt5serialport5-dev \
-libqt5serviceframework5 \
 libqt5sql5 \
 libqt5svg5 \
 libqt5svg5-dev \
-libqt5systeminfo5 \
 libqt5test5 \
 libqt5webkit5 \
 libqt5webkit5-dev \
@@ -413,21 +417,21 @@ print_done "Packages installation"
 print_title "Packages configuration"
 
 # git configuration
-echo -n "${color_blue}please enter user name:${color_normal} "
+echo -en "${color_blue}please enter user name:${color_normal} "
 read name
-echo -n "${color_blue}please enter user email:${color_normal} "
+echo -en "${color_blue}please enter user email:${color_normal} "
 read email
 message="git configuration"
-git config --global user.email ${email} && \
-git config --global user.name ${name} \
+git config --global user.email "${email}" \
+&& git config --global user.name "${name}" \
 && task_ok "${message}" \
 || task_fail "${message}"
 
 # sublime-text-3 configuration
 message="sublime-text-3 configuration"
-rm -rf /home/${USER}/.config/sublime-text-3/Packages/User && \
-mkdir -p /home/${USER}/Dropbox/Backup/sublime-text-3/User && \
-ln -s /home/${USER}/Dropbox/Backup/sublime-text-3/User /home/${USER}/.config/sublime-text-3/Packages/User \
+rm -rf /home/${USER}/.config/sublime-text-3/Packages/User \
+&& mkdir -p /home/${USER}/Dropbox/Backup/sublime-text-3/User \
+&& ln -s /home/${USER}/Dropbox/Backup/sublime-text-3/User /home/${USER}/.config/sublime-text-3/Packages/User \
 && task_ok "${message}" \
 || task_fail "${message}"
 

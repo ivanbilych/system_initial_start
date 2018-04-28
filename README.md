@@ -1,5 +1,5 @@
 # Info
-System setup routine after clean system install. Was tested on **Ubuntu 17.10**
+System setup routine after clean system install. Was tested on **Ubuntu 18.04**
 
 # Instructions
 Just run the script:
@@ -28,4 +28,3 @@ use `debug=true` prefix in case debug output required
     * install QT Creator
 * Packages configuration
     * git configuration
-
