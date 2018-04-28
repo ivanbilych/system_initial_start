@@ -189,6 +189,7 @@ build-essential \
 ccache \
 clang \
 cmake \
+conky-all \
 cu \
 curl \
 debootstrap \
