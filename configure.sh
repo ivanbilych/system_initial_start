@@ -150,6 +150,12 @@ redirect timedatectl set-local-rtc 1 --adjust-system-clock \
 && task_ok "${message}" \
 || task_fail "${message}"
 
+# Activate 'minimaze on click' option
+message="minimaze on click option"
+redirect gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize' \
+&& task_ok "${message}" \
+|| task_fail "${message}"
+
 print_done "System configuration"
 
 #-- Packages installation --#
