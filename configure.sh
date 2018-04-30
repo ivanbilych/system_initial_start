@@ -279,13 +279,13 @@ zlib1g-dev \
 print_warn "Installing software. This can take some time"
 
 message="ubuntu deb packages installation"
-redirect sudo apt install ${software_list} -y \
+sudo apt install ${software_list} -y \
 && task_ok "${message}" \
 || { task_fail "${message}"; print_fail "Packages install error"; }
 
 # Upgrade distro packages
 message="ubuntu distro update"
-redirect sudo apt dist-upgrade -y \
+sudo apt dist-upgrade -y \
 && task_ok "${message}" \
 || task_fail "${message}"
 
@@ -378,7 +378,7 @@ qttools5-dev \
 print_warn "Installing software. This can take some time"
 
 message="QT5 deb packages installation"
-redirect sudo apt install ${software_list} -y \
+sudo apt install ${software_list} -y \
 && task_ok "${message}" \
 || { task_fail "${message}"; print_fail "Packages install error"; }
 
@@ -429,7 +429,7 @@ redirect mkdir -p ~/.bin \
 
 # Install additional drivers
 message="Install additional drivers"
-redirect sudo ubuntu-drivers autoinstall \
+sudo ubuntu-drivers autoinstall \
 && task_ok "${message}" \
 || task_fail "${message}"
 
