@@ -142,6 +142,12 @@ redirect sudo cp ${target_file} /root \
 && task_ok "${message}" \
 || task_fail "${message}"
 
+# Setup conkyrc file
+message="setup .conkyrc file"
+redirect cp conkyrc.txt /home/${USER}/.conkyrc \
+&& task_ok "${message}" \
+|| task_fail "${message}"
+
 # Setup correct time locale
 message="setup currect time locale"
 redirect timedatectl set-local-rtc 1 --adjust-system-clock \
