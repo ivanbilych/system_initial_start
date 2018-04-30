@@ -444,3 +444,15 @@ rm -rf /home/${USER}/.config/sublime-text-3/Packages/User \
 || task_fail "${message}"
 
 print_done "Packages configuration"
+
+#-- Packages uninstall --#
+
+# Uninstall software
+software_list="
+ubuntu-web-launchers \
+"
+
+message="ubuntu deb packages uninstall"
+redirect sudo apt purge ${software_list} -y \
+&& task_ok "${message}" \
+|| task_fail "${message}"
