@@ -218,6 +218,7 @@ grub-customizer \
 gstreamer1.0-plugins-bad \
 gstreamer1.0-plugins-ugly \
 gthumb \
+gufw \
 htop \
 iptraf \
 kazam \
