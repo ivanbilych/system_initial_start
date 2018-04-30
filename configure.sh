@@ -263,6 +263,9 @@ ubuntu-restricted-extras \
 unrar \
 vim \
 vino \
+virtualbox \
+virtualbox-guest-additions-iso \
+virtualbox-guest-x11 \
 vlc \
 wine-stable \
 x11proto-core-dev \
