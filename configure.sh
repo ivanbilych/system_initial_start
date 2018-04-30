@@ -279,6 +279,12 @@ redirect sudo apt install ${software_list} -y \
 && task_ok "${message}" \
 || { task_fail "${message}"; print_fail "Packages install error"; }
 
+# Upgrade distro packages
+message="ubuntu distro update"
+redirect sudo apt dist-upgrade -y \
+&& task_ok "${message}" \
+|| task_fail "${message}"
+
 # Install glances
 message="install glances tool"
 wget -q -O- http://bit.ly/glances | redirect /bin/bash \
