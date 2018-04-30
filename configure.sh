@@ -429,6 +429,12 @@ redirect sudo ubuntu-drivers autoinstall \
 && task_ok "${message}" \
 || task_fail "${message}"
 
+# Remove unused packages
+message="remove unused packages"
+redirect sudo apt autoremove -y \
+&& task_ok "${message}" \
+|| task_fail "${message}"
+
 print_done "Packages installation"
 
 #-- Packages configuration --#
