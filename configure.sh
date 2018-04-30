@@ -412,6 +412,12 @@ redirect mkdir -p ~/.bin \
 && task_ok "${message}" \
 || task_fail "${message}"
 
+# Install additional drivers
+message="Install additional drivers"
+redirect sudo ubuntu-drivers autoinstall \
+&& task_ok "${message}" \
+|| task_fail "${message}"
+
 print_done "Packages installation"
 
 #-- Packages configuration --#
