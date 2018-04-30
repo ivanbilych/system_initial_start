@@ -203,6 +203,7 @@ debootstrap \
 doxygen \
 exfat-fuse \
 exfat-utils \
+fonts-font-awesome \
 filezilla \
 flex \
 g++-multilib \
