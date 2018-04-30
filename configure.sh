@@ -104,7 +104,6 @@ redirect() {
 print_title "System configuration"
 
 # Bashrc file configuration
-
 target_file="/home/${USER}/.bashrc"
 HISTSIZE=100000
 HISTFILESIZE=200000
@@ -144,7 +143,6 @@ redirect sudo cp ${target_file} /root \
 || task_fail "${message}"
 
 # Setup correct time locale
-
 message="setup currect time locale"
 redirect timedatectl set-local-rtc 1 --adjust-system-clock \
 && task_ok "${message}" \
@@ -162,6 +160,7 @@ print_done "System configuration"
 
 print_title "Packages installation"
 
+# Setup additional ppa
 ppa_01="ppa:danielrichter2007/grub-customizer"
 message="add custom repository: ${ppa_01}"
 redirect sudo add-apt-repository "${ppa_01}" -y \
@@ -312,7 +311,6 @@ redirect mkdir -p ~/.bin \
 || task_fail "${message}"
 
 # Install QT5 packages
-
 software_list="
 libqt5bluetooth5 \
 libqt5concurrent5 \
