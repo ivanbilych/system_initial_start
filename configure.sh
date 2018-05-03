@@ -246,6 +246,7 @@ meld \
 memtest86+ \
 minicom \
 nautilus-dropbox \
+net-tools \
 network-manager-openconnect \
 network-manager-openconnect-gnome \
 network-manager-openvpn \
