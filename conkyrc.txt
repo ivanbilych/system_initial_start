@@ -38,10 +38,10 @@ $nodename${color}${goto 150}${font FontAwesome}${font}${voffset -2} ${time %d
 ${hr}
 Load: $loadavg ${goto 170}Uptime: $uptime
 Processes: $processes ${goto 170}Running: $running_processes
-CPU0: ${cpu cpu0}%${goto 80}${cpubar 7,60 cpu0}${goto 170}CPU4: ${cpu cpu4}%${goto 250}${cpubar 7,60 cpu4}
-CPU1: ${cpu cpu1}%${goto 80}${cpubar 7,60 cpu1}${goto 170}CPU5: ${cpu cpu5}%${goto 250}${cpubar 7,60 cpu5}
-CPU2: ${cpu cpu2}%${goto 80}${cpubar 7,60 cpu2}${goto 170}CPU6: ${cpu cpu6}%${goto 250}${cpubar 7,60 cpu6}
-CPU3: ${cpu cpu3}%${goto 80}${cpubar 7,60 cpu3}${goto 170}CPU7: ${cpu cpu7}%${goto 250}${cpubar 7,60 cpu7}
+CPU0: ${cpu cpu0}%${goto 80}${cpubar cpu0 7,60}${goto 170}CPU4: ${cpu cpu4}%${goto 250}${cpubar cpu4 7,60}
+CPU1: ${cpu cpu1}%${goto 80}${cpubar cpu1 7,60}${goto 170}CPU5: ${cpu cpu5}%${goto 250}${cpubar cpu5 7,60}
+CPU2: ${cpu cpu2}%${goto 80}${cpubar cpu2 7,60}${goto 170}CPU6: ${cpu cpu6}%${goto 250}${cpubar cpu6 7,60}
+CPU3: ${cpu cpu3}%${goto 80}${cpubar cpu3 7,60}${goto 170}CPU7: ${cpu cpu7}%${goto 250}${cpubar cpu7 7,60}
 ${hr}
 ${font FontAwesome}${font}${voffset -2} ${mem}/${memmax} (${memperc}%) | Swap: ${swapperc}%
 ${memgraph 30,305 AAF5D0 00B35B}
