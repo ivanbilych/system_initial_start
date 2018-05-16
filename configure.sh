@@ -284,6 +284,7 @@ vlc \
 wine-stable \
 x11proto-core-dev \
 xclip \
+xdotool \
 xrdp \
 xterm \
 zip \
