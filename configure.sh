@@ -187,6 +187,12 @@ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | redirect su
 && task_ok "${message}" \
 || task_fail "${message}"
 
+ppa_04="ppa:otto-kesselgulasch/gimp"
+message="add custom repository: ${ppa_04}"
+redirect sudo add-apt-repository "${ppa_04}" -y \
+&& task_ok "${message}" \
+|| task_fail "${message}"
+
 # Update repositories
 message="update list of available packages"
 redirect sudo apt update \
