@@ -281,6 +281,7 @@ sublime-text \
 texlive-extra-utils \
 ubuntu-restricted-extras \
 unrar \
+ubuntu-communitheme-session \
 vim \
 vino \
 virtualbox \
