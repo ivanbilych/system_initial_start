@@ -193,6 +193,12 @@ redirect sudo add-apt-repository "${ppa_04}" -y \
 && task_ok "${message}" \
 || task_fail "${message}"
 
+ppa_05="ppa:communitheme/ppa"
+message="add custom repository: ${ppa_05}"
+redirect sudo add-apt-repository "${ppa_05}" -y \
+&& task_ok "${message}" \
+|| task_fail "${message}"
+
 # Update repositories
 message="update list of available packages"
 redirect sudo apt update \
