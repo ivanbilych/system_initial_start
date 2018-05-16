@@ -285,6 +285,7 @@ wine-stable \
 x11proto-core-dev \
 xclip \
 xrdp \
+xterm \
 zip \
 zlib1g-dev \
 "
