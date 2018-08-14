@@ -96,7 +96,7 @@ else
     user_color="${text_green}"
 fi
 
-PS1="\$(exitstatus) ${text_purple}\t${text_normal} ${user_color}\u${text_yellow}:${text_blue}\h${text_normal} ${text_yellow}\w${text_normal}\$(parse_git_branch)
+PS1="\$(exitstatus) ${text_purple}\$(date '+%Y/%m/%d %H:%M:%S')${text_normal} ${user_color}\u${text_yellow}:${text_blue}\h${text_normal} ${text_yellow}\w${text_normal}\$(parse_git_branch)
 $ "
 
 # System update shortcut
