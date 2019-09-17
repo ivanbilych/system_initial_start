@@ -1,107 +1,52 @@
-
 # ---------------------------------------------------------------------------- #
 #                  This confogurations was inserted by script                  #
-#      Please refer to https://github.com/ivanbilych/system_initial_start      #
 # ---------------------------------------------------------------------------- #
 
-# Different helpers for text output manipulations
-
-text_color_clear="00"
-
-# Text attributes
-text_attribute_normal="0"
-text_attribute_bold="1"
-text_attribute_dim="2"
-text_attribute_underline="4"
-text_attribute_blink="5"
-text_attribute_reversed="7"
-text_attribute_hidden="8"
-
+#
 # Text color
-text_color_black="30"
-text_color_blue="34"
-text_color_cyan="36"
-text_color_green="32"
-text_color_purple="35"
-text_color_red="31"
-text_color_white="37"
-text_color_yellow="33"
+#
 
-# Text background color
-background_color_black="40"
-background_color_blue="44"
-background_color_cyan="46"
-background_color_green="42"
-background_color_purple="45"
-background_color_red="41"
-background_color_white="47"
-background_color_yellow="43"
+C_NONE="\e[0m"
+C_RED="\e[31m"
+C_GREEN="\e[32m"
+C_YELLOW="\e[33m"
+C_BLUE="\e[34m"
+C_PURPLE="\e[35m"
+C_CYAN="\e[36m"
+C_CYAN_U="\e[36;4m"
 
-style() {
-    echo "\e[${2};${1}m"
-}
-
-# Set of different text styles
-text_normal="$(style ${text_color_clear} ${text_attribute_normal})"
-text_black="$(style ${text_color_black} ${text_attribute_normal})"
-text_black_b="$(style ${text_color_black} ${text_attribute_bold})"
-text_blue="$(style ${text_color_blue} ${text_attribute_normal})"
-text_blue_b="$(style ${text_color_blue} ${text_attribute_bold})"
-text_cyan="$(style ${text_color_cyan} ${text_attribute_normal})"
-text_cyan_b="$(style ${text_color_cyan} ${text_attribute_bold})"
-text_green="$(style ${text_color_green} ${text_attribute_normal})"
-text_green_b="$(style ${text_color_green} ${text_attribute_bold})"
-text_purple="$(style ${text_color_purple} ${text_attribute_normal})"
-text_purple_b="$(style ${text_color_purple} ${text_attribute_bold})"
-text_red="$(style ${text_color_red} ${text_attribute_normal})"
-text_red_b="$(style ${text_color_red} ${text_attribute_bold})"
-text_white="$(style ${text_color_white} ${text_attribute_normal})"
-text_white_b="$(style ${text_color_white} ${text_attribute_bold})"
-text_yellow="$(style ${text_color_yellow} ${text_attribute_normal})"
-text_yellow_b="$(style ${text_color_yellow} ${text_attribute_bold})"
-
-# Set of different background styles
-background_black="$(style ${background_color_black} ${text_attribute_normal})"
-background_blue="$(style ${background_color_blue} ${text_attribute_normal})"
-background_cyan="$(style ${background_color_cyan} ${text_attribute_normal})"
-background_green="$(style ${background_color_green} ${text_attribute_normal})"
-background_purple="$(style ${background_color_purple} ${text_attribute_normal})"
-background_red="$(style ${background_color_red} ${text_attribute_normal})"
-background_white="$(style ${background_color_white} ${text_attribute_normal})"
-background_yellow="$(style ${background_color_yellow} ${text_attribute_normal})"
+#
+# Command line prompt
+#
 
 parse_git_branch() {
+    local color=
+
     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) ]]; then
-        if [[ ! $(git status 2> /dev/null | grep "nothing to commit") ]]; then
-            attribute="${text_attribute_underline}"
-        else
-            attribute="${text_attribute_normal}"
-        fi
-            echo -en " $(style ${text_color_cyan} ${attribute})($(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' | tr -d '()'))${text_normal}"
+        [[ ! $(git status 2> /dev/null | grep "nothing to commit") ]] && color="${C_CYAN_U}" || color="${C_CYAN}"
+
+        echo -en " ${color}($(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' | tr -d '()'))${C_NONE}"
     fi
 }
 
-exitstatus() {
-    if [[ $? == 0 ]]; then
-        echo -en "${text_green}[✓]${text_normal}"
-    else
-        echo -en "${text_red}[✗]${text_normal}"
-    fi
+exit_status() {
+    [[ $? == 0 ]] && echo -en "${C_GREEN}[✓]${C_NONE}" || echo -en "${C_RED}[✗]${C_NONE}"
 }
 
-# Bash command prompt configuration
-if [ $(id -u) -eq 0 ]; then
-    user_color="${text_red}"
-else
-    user_color="${text_green}"
-fi
+user_color() {
+    [[ $(id -u) -eq 0 ]] && echo -en "${C_RED}" || echo -en "${C_GREEN}"
+}
 
-PS1="\$(exitstatus) ${text_purple}\$(date '+%Y/%m/%d %H:%M:%S')${text_normal} ${user_color}\u${text_yellow}:${text_blue}\h${text_normal} ${text_yellow}\w${text_normal}\$(parse_git_branch)
-$ "
+PS1="${C_NONE}\$(exit_status) ${C_PURPLE}\$(date '+%Y/%m/%d %H:%M:%S')${C_NONE} \$(user_color)\u${C_YELLOW}:${C_BLUE}\h${C_NONE} ${C_YELLOW}\w${C_NONE}\$(parse_git_branch)
+$ > "
+
+#
+# Aliases
+#
 
 # System update shortcut
-alias update='sudo apt update && sudo apt upgrade -y && sudo apt install -f -y && sudo apt-get autoremove -y'
-alias updateall='sudo apt update && sudo apt upgrade -y && sudo apt install -f -y && sudo apt dist-upgrade -y && sudo apt-get autoremove -y'
+alias sys_update="sudo apt update && sudo apt upgrade -y && sudo apt install -f -y && sudo apt-get autoremove -y"
+alias sys_update_all="sudo apt update && sudo apt upgrade -y && sudo apt install -f -y && sudo apt dist-upgrade -y && sudo apt-get autoremove -y"
 
 # Make setup shortcut
 alias m="make -j$(nproc)"
@@ -112,7 +57,11 @@ alias m8="make -j8"
 alias m16="make -j16"
 
 # Other alias
-alias ..='cd ..'
+alias ..="cd .."
+
+#
+# Environment
+#
 
 # mc preferences
 export EDITOR="subl -w"
