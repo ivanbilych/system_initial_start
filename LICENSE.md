@@ -1,5 +1,5 @@
 System Initial Start - quick setup script for linux distro
-Copyright (C) 2018  Ivan Bilych
+Copyright (C) 2019 Ivan Bilych
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
